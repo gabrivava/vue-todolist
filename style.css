@@ -3,10 +3,42 @@
     padding: 0;
     box-sizing: border-box;
 }
+h2 {
+    padding: 1rem;
+}
 body {
     background-color: rgb(127, 225, 255);
+    font-family: 'Open Sans', sans-serif;
 }
 #root {
     text-align: center;
     padding: 2rem;
+}
+.bg-white {
+    background-color: white;
+    border-radius: 7px;
+    margin: 1rem;
+}
+.container {
+    display: flex;
+    justify-content: center;
+}
+.task {
+    margin: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    min-width: 250px;
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+    background-color: gray;
+    border-radius: 5px;
+}
+.task .fas {
+    font-size: 1.5rem;
+}
+button,
+.input-task {
+    padding: 1rem;
+    border-radius: 5px;
+    border-color: teal;
 }

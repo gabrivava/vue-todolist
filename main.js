@@ -30,6 +30,7 @@ const root = new Vue({
         ],
         newTask: '',
         taskComplete: [],
+        taskDeleted: []
     },
 
     methods: {
@@ -45,9 +46,22 @@ const root = new Vue({
         //aggiungi task completata in tasksComplete
         addTaskDone(index) {
             this.taskComplete.push(this.tasks[index]);
-            console.log(this.taskComplete);
             //rimuovi task da lista tasks
             this.tasks.splice(index, 1);
+        },
+
+        //rimuovi task da complete e rimettila in to-doo
+        returnToDo(index) {
+            this.tasks.push(this.taskComplete[index]);
+            this.taskComplete.splice(index, 1);
+        },
+
+        //controlla se ci sono el nell'array
+        checkEmpty(lista) {
+            if (lista.length < 1) {
+                return false
+            }
+            return true
         }
     }
 })

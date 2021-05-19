@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <title>vue-todolist</title>
     <link rel="stylesheet" href="./style.css">
 </head>
@@ -13,17 +15,43 @@
     <div id="root">
         <!-- aggiungi task -->
         <div class="add_task">
-            <input v-model="newTask" placeholder="Type your task">
+            <input class="input-task" v-model="newTask" placeholder="Type your task">
             <button @click="addTask">Add</button>
         </div>
         <!-- ciclo v-for per mostrare le singole task -->
-        <div class="tasks">
-            <div v-for="(task, index) in tasks" class="task">
-                {{task}}
-                <i class="fas fa-check-circle" :index="index" @click="addTaskDone(index)"></i>
-                <i class="fas fa-trash"></i></i>
+        <div class="container">
+            <div class="tasks bg-white">
+                <h2>To-doo Tasks</h2>
+                <div v-for="(task, index) in tasks" class="task">
+                    {{task}}
+                    <div class="icone">
+                        <i class="fas fa-check-circle" :index="index" @click="addTaskDone(index)"></i>
+                        <i class="fas fa-trash"></i></i>
+                    </div>
+                    
+                </div>
+            
+            </div>
+
+            <!-- complete tasks -->
+            <div class="task_complete bg-white">
+                <h2>Complete Tasks</h2>
+                <div v-for="(task, index) in taskComplete" class="task">
+                    {{task}}
+                    <i class="fas fa-history" @click="returnToDo(index)"></i>
+                </div>
+            </div>
+
+            <!-- deleted tasks -->
+            <div class="task_deleted bg-white" v-if="checkEmpty(taskDeleted)">
+                <h2>Deleted Tasks</h2>
+                <div v-for="(task, index) in taskDeleted" class="task">
+                    {{task}}
+                    <i class="fas fa-history" @click="returnToDo(index)"></i>
+                </div>
             </div>
         </div>
+        
         
 
     </div>
