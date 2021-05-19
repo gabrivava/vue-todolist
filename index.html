@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <title>vue-todolist</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    
+    <div id="root">
+        <!-- aggiungi task -->
+        <div class="add_task">
+            <input v-model="newTask" placeholder="Type your task">
+            <button @click="addTask">Add</button>
+        </div>
+        <!-- ciclo v-for per mostrare le singole task -->
+        <div class="tasks">
+            <div v-for="(task, index) in tasks" class="task">
+                {{task}}
+                <i class="fas fa-check-circle" :index="index" @click="addTaskDone(index)"></i>
+                <i class="fas fa-trash"></i></i>
+            </div>
+        </div>
+        
+
+    </div>
+
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="./main.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: rgb(127, 225, 255);
+}
+#root {
+    text-align: center;
+    padding: 2rem;
+}
