@@ -42,3 +42,7 @@ button,
     border-radius: 5px;
     border-color: teal;
 }
+.delete-all {
+    text-decoration: underline;
+    cursor: pointer;
+}

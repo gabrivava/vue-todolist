@@ -26,7 +26,7 @@
                     {{task}}
                     <div class="icone">
                         <i class="fas fa-check-circle" :index="index" @click="addTaskDone(index)"></i>
-                        <i class="fas fa-trash"></i></i>
+                        <i class="fas fa-trash" @click="addTaskTrash(index)"></i></i>
                     </div>
                     
                 </div>
@@ -34,7 +34,7 @@
             </div>
 
             <!-- complete tasks -->
-            <div class="task_complete bg-white">
+            <div class="task_complete bg-white" v-if="checkEmpty(taskComplete)">
                 <h2>Complete Tasks</h2>
                 <div v-for="(task, index) in taskComplete" class="task">
                     {{task}}
@@ -45,14 +45,14 @@
             <!-- deleted tasks -->
             <div class="task_deleted bg-white" v-if="checkEmpty(taskDeleted)">
                 <h2>Deleted Tasks</h2>
+                <span class="delete-all" @click="deleteAll">Delete All</span>
                 <div v-for="(task, index) in taskDeleted" class="task">
                     {{task}}
-                    <i class="fas fa-history" @click="returnToDo(index)"></i>
+                    <i class="fas fa-history" @click="returnToDoFromDelete(index)"></i>
+                    <i class="fas fa-trash-restore" @click="deleteTask(index)"></i>
                 </div>
             </div>
         </div>
-        
-        
 
     </div>
 

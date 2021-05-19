@@ -49,11 +49,19 @@ const root = new Vue({
             //rimuovi task da lista tasks
             this.tasks.splice(index, 1);
         },
-
+        //elimina una task da delete(permanentemente)
+        deleteTask(index) {
+            this.taskDeleted.splice(index, 1);
+        },
         //rimuovi task da complete e rimettila in to-doo
         returnToDo(index) {
             this.tasks.push(this.taskComplete[index]);
             this.taskComplete.splice(index, 1);
+        },
+        //rimuovi da delete e rimettila in to-doo
+        returnToDoFromDelete(index) {
+            this.tasks.push(this.taskDeleted[index]);
+            this.taskDeleted.splice(index, 1);
         },
 
         //controlla se ci sono el nell'array
@@ -62,6 +70,32 @@ const root = new Vue({
                 return false
             }
             return true
+        },
+
+        //rimuovi task e aggiungila a deleted
+        addTaskTrash(index) {
+            this.taskDeleted.push(this.tasks[index]);
+            this.tasks.splice(index, 1);
+        },
+
+        //delete all
+        deleteAll() {
+            const userInput = prompt('type YES to delete all the complete task');
+            if (userInput === 'YES') {
+                this.taskDeleted = [];
+            }
+        },
+
+
+        //se non ci son task rimanenti stampa un messaggio
+        nullaDafare() {
+            if (this.tasks.length < 1) {
+                document.querySelector('.tasks').insertAdjacentHTML('beforeend',
+                `
+                <p>Hai completato tutti i Task, puoi riposare</p>
+                `
+                )
+            }
         }
     }
 })
