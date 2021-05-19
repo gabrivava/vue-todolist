@@ -22,6 +22,9 @@
         <div class="container">
             <div class="tasks bg-white">
                 <h2>To-doo Tasks</h2>
+                <div v-if="nullaDaFare">
+
+                </div>
                 <div v-for="(task, index) in tasks" class="task">
                     {{task}}
                     <div class="icone">
@@ -38,7 +41,9 @@
                 <h2>Complete Tasks</h2>
                 <div v-for="(task, index) in taskComplete" class="task">
                     {{task}}
-                    <i class="fas fa-history" @click="returnToDo(index)"></i>
+                    <div class="icone">
+                        <i class="fas fa-history" @click="returnToDo(index)"></i>
+                    </div>
                 </div>
             </div>
 
@@ -48,8 +53,10 @@
                 <span class="delete-all" @click="deleteAll">Delete All</span>
                 <div v-for="(task, index) in taskDeleted" class="task">
                     {{task}}
-                    <i class="fas fa-history" @click="returnToDoFromDelete(index)"></i>
-                    <i class="fas fa-trash-restore" @click="deleteTask(index)"></i>
+                    <div class="icone">
+                        <i class="fas fa-history" @click="returnToDoFromDelete(index)"></i>
+                        <i class="fas fa-trash-restore" @click="deleteTask(index)"></i>
+                    </div>
                 </div>
             </div>
         </div>
