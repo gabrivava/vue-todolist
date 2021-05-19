@@ -86,17 +86,5 @@ const root = new Vue({
             }
         },
 
-
-        //se non ci son task rimanenti stampa un messaggio
-        nullaDafare() {
-            if (this.tasks.length < 1) {
-                alert('ok');
-                document.querySelector('.tasks').insertAdjacentHTML('beforeend',
-                `
-                <p>Hai completato tutti i Task, puoi riposare</p>
-                `
-                )
-            }
-        }
     }
 })

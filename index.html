@@ -22,17 +22,21 @@
         <div class="container">
             <div class="tasks bg-white">
                 <h2>To-doo Tasks</h2>
-                <div v-if="nullaDaFare">
 
-                </div>
-                <div v-for="(task, index) in tasks" class="task">
-                    {{task}}
-                    <div class="icone">
-                        <i class="fas fa-check-circle" :index="index" @click="addTaskDone(index)"></i>
-                        <i class="fas fa-trash" @click="addTaskTrash(index)"></i></i>
+                <div v-if="tasks.length > 0">
+                    <div v-for="(task, index) in tasks" class="task">
+                        <input type="text" :value="task">
+                        <div class="icone">
+                            <i class="fas fa-check-circle" :index="index" @click="addTaskDone(index)"></i>
+                            <i class="fas fa-trash" @click="addTaskTrash(index)"></i></i>
+                        </div>
+                        
                     </div>
-                    
                 </div>
+                <div v-else class="complete-all">
+                    Hai completato tutti i Task, puoi riposare
+                </div>
+
             
             </div>
 

@@ -46,3 +46,6 @@ button,
     text-decoration: underline;
     cursor: pointer;
 }
+.complete-all {
+    padding: 1rem;
+}
