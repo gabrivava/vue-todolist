@@ -15,17 +15,16 @@
     <div id="root">
         <!-- aggiungi task -->
         <div class="add_task">
-            <input class="input-task" v-model="newTask" placeholder="Type your task">
+            <input class="input-task" v-model="newTask" placeholder="Type your task"  @keyup.enter="addTask">
             <button @click="addTask">Add</button>
         </div>
         <!-- ciclo v-for per mostrare le singole task -->
         <div class="container">
             <div class="tasks bg-white">
                 <h2>To-doo Tasks</h2>
-
                 <div v-if="tasks.length > 0">
                     <div v-for="(task, index) in tasks" class="task">
-                        <input type="text" :value="task">
+                        <input v-model="tasks[index]" class="element" @keyup.enter="addTask">
                         <div class="icone">
                             <i class="fas fa-check-circle" :index="index" @click="addTaskDone(index)"></i>
                             <i class="fas fa-trash" @click="addTaskTrash(index)"></i></i>

@@ -49,3 +49,8 @@ button,
 .complete-all {
     padding: 1rem;
 }
+.element {
+    background-color: transparent;
+    border: none;
+    color: white;
+}
