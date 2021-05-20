@@ -24,7 +24,7 @@
                 <h2>To-doo Tasks</h2>
                 <div v-if="tasks.length > 0">
                     <div v-for="(task, index) in tasks" class="task">
-                        <input v-model="tasks[index]" class="element" @keyup.enter="addTask">
+                        <input v-model="tasks[index]" class="element">
                         <div class="icone">
                             <i class="fas fa-check-circle" :index="index" @click="addTaskDone(index)"></i>
                             <i class="fas fa-trash" @click="addTaskTrash(index)"></i></i>
